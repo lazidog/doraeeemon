@@ -1,0 +1,701 @@
+[
+  {
+    "name": "Flarefox",
+    "element": "Fire",
+    "baseHP": 50,
+    "skill": {
+      "name": "Blaze",
+      "type": "Trigger",
+      "description": "Khi đánh bại pet → hồi 10 HP cho bản thân.",
+      "conditions": [
+        "action:kill"
+      ],
+      "effects": [
+        {
+          "type": "Heal",
+          "value": 10,
+          "target": "self"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Cindrake",
+    "element": "Fire",
+    "baseHP": 50,
+    "skill": {
+      "name": "Last Flame",
+      "type": "Passive",
+      "description": "Phát nổ khi bị hạ",
+      "conditions": [
+        "on:die"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 5,
+          "target": "allEnemies"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sunny",
+    "element": "Fire",
+    "baseHP": 50,
+    "skill": {
+      "name": "Overheat",
+      "type": "Passive",
+      "description": "Tấn công bỏ qua khắc hệ",
+      "conditions": [
+        "on:countered"
+      ],
+      "effects": [
+        {
+          "type": "IgnoreCounter",
+          "value": 0,
+          "target": "self"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Aquana",
+    "element": "Water",
+    "baseHP": 50,
+    "skill": {
+      "name": "Hydroburst",
+      "type": "Passive",
+      "description": "x2 sát thương khi gặp khắc chế",
+      "conditions": [],
+      "effects": [
+        {
+          "type": "Buff",
+          "operator": "multiply",
+          "value": 2,
+          "target": "self"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Shellter",
+    "element": "Water",
+    "baseHP": 50,
+    "skill": {
+      "name": "Shell Guard",
+      "type": "Passive",
+      "description": "Chặn hiệu ứng skill đầu tiên từ đối thủ.",
+      "conditions": [],
+      "effects": [
+        {
+          "type": "Shield",
+          "value": 0,
+          "target": "self"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Leviatide",
+    "element": "Water",
+    "baseHP": 50,
+    "skill": {
+      "name": "Tidal Surge",
+      "type": "Trigger",
+      "description": "Nếu còn <25 HP → gây thêm 10 dmg.",
+      "conditions": [
+        "on:lowHP"
+      ],
+      "effects": [
+        {
+          "type": "Buff",
+          "value": 10
+        }
+      ]
+    }
+  },
+  {
+    "name": "Treantle",
+    "element": "Grass",
+    "baseHP": 50,
+    "skill": {
+      "name": "Regen Root",
+      "type": "Trigger",
+      "description": "Nếu pet này thua → +10 HP (tối đa 60) cho pet kế tiếp cùng vị trí.",
+      "conditions": [
+        "on:die"
+      ],
+      "effects": [
+        {
+          "type": "Heal",
+          "value": 10,
+          "target": "nextAlly"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Leafairy",
+    "element": "Grass",
+    "baseHP": 50,
+    "skill": {
+      "name": "Wind Dance",
+      "type": "Trigger",
+      "description": "Nếu ở vị trí đầu → gây +10 dmg trong lượt đầu.",
+      "conditions": [
+        "onFirstTurn"
+      ],
+      "effects": [
+        {
+          "type": "Buff",
+          "value": 10,
+          "target": "self"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Thornling",
+    "element": "Grass",
+    "baseHP": 50,
+    "skill": {
+      "name": "Spiky Guard",
+      "type": "Passive",
+      "description": "Phản trả 5 dmg mỗi khi bị tấn công.",
+      "conditions": [
+        "onGetHit"
+      ],
+      "effects": [
+        {
+          "type": "Reflect",
+          "value": 5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Mudcrush",
+    "element": "Earth",
+    "baseHP": 50,
+    "skill": {
+      "name": "Rock Skin",
+      "type": "Passive",
+      "description": "Nếu bị khắc chế → nhận 10 dmg thay vì 20.",
+      "conditions": [
+        "onCountered"
+      ],
+      "effects": [
+        {
+          "type": "ReduceDamage",
+          "value": 10
+        }
+      ]
+    }
+  },
+  {
+    "name": "Terragoon",
+    "element": "Earth",
+    "baseHP": 50,
+    "skill": {
+      "name": "Earthbind",
+      "type": "Trigger",
+      "description": "Trói pet đối thủ tiếp theo 1 lượt (skip turn).",
+      "conditions": [
+        "onKill"
+      ],
+      "effects": [
+        {
+          "type": "Stun",
+          "value": 1,
+          "target": "nextEnemy"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Quakehorn",
+    "element": "Earth",
+    "baseHP": 50,
+    "skill": {
+      "name": "Quake Stamp",
+      "type": "Passive",
+      "description": "Gây 5 AOE dmg mỗi lượt lên toàn bộ team đối thủ.",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 5,
+          "target": "allEnemies"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Zapmole",
+    "element": "Electric",
+    "baseHP": 50,
+    "skill": {
+      "name": "Spark Chain",
+      "type": "Passive",
+      "description": "Nếu đồng đội gây khắc chế → gây 5 AOE dmg.",
+      "conditions": [
+        "onAllyCounter"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 5,
+          "target": "allEnemies"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Volthorn",
+    "element": "Electric",
+    "baseHP": 50,
+    "skill": {
+      "name": "Overcharge",
+      "type": "Trigger",
+      "description": "Nếu HP chủ nhân <50% → gây thêm 5 dmg.",
+      "conditions": [
+        "onLowPlayerHP"
+      ],
+      "effects": [
+        {
+          "type": "Buff",
+          "value": 5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sparkowl",
+    "element": "Electric",
+    "baseHP": 50,
+    "skill": {
+      "name": "Flashbolt",
+      "type": "Trigger",
+      "description": "20% cơ hội đánh 2 lần trong lượt.",
+      "conditions": [
+        "onAttack"
+      ],
+      "effects": [
+        {
+          "type": "DoubleStrike",
+          "chance": 20
+        }
+      ]
+    }
+  },
+  {
+    "name": "Frostbit",
+    "element": "Ice",
+    "baseHP": 50,
+    "skill": {
+      "name": "Cold Touch",
+      "type": "Trigger",
+      "description": "Khi thua → giảm 5 ATK pet đối thủ trong 1 lượt tiếp theo.",
+      "conditions": [
+        "onLose"
+      ],
+      "effects": [
+        {
+          "type": "Debuff",
+          "value": 5,
+          "target": "enemy",
+          "duration": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "Snowster",
+    "element": "Ice",
+    "baseHP": 50,
+    "skill": {
+      "name": "Hailstorm",
+      "type": "Trigger",
+      "description": "Sau khi thắng → gây 5 AOE dmg cho cả đội đối phương.",
+      "conditions": [
+        "onKill"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 5,
+          "target": "allEnemies"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Glaciel",
+    "element": "Ice",
+    "baseHP": 50,
+    "skill": {
+      "name": "Ice Barrier",
+      "type": "Passive",
+      "description": "Giảm 10 dmg cho lượt đầu tiên.",
+      "conditions": [
+        "onFirstTurn"
+      ],
+      "effects": [
+        {
+          "type": "Shield",
+          "value": 10
+        }
+      ]
+    }
+  },
+  {
+    "name": "Venomoth",
+    "element": "Poison",
+    "baseHP": 50,
+    "skill": {
+      "name": "Toxin",
+      "type": "Trigger",
+      "description": "Khi bị trúng skill → chịu 3 dmg mỗi lượt trong 2 lượt.",
+      "conditions": [
+        "onGetHit"
+      ],
+      "effects": [
+        {
+          "type": "DOT",
+          "value": 3,
+          "duration": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Psykitty",
+    "element": "Psychic",
+    "baseHP": 50,
+    "skill": {
+      "name": "Mind Twist",
+      "type": "Trigger",
+      "description": "20% khả năng hoán đổi vị trí pet đối thủ (1 lần).",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "Swap",
+          "chance": 20,
+          "target": "enemy"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Moltitan",
+    "element": "Fire",
+    "baseHP": 50,
+    "skill": {
+      "name": "Inferno Burst",
+      "type": "Passive",
+      "description": "Gây 10 AOE dmg mỗi lượt.",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 10,
+          "target": "allEnemies"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Cinderling",
+    "element": "Fire",
+    "baseHP": 50,
+    "skill": {
+      "name": "Ember Rain",
+      "type": "Trigger",
+      "description": "Gây 5 AOE dmg mỗi lượt trong 3 lượt.",
+      "conditions": [
+        "onBattleStart"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 5,
+          "duration": 3
+        }
+      ]
+    }
+  },
+  {
+    "name": "Blasthorn",
+    "element": "Fire",
+    "baseHP": 50,
+    "skill": {
+      "name": "Burn Mark",
+      "type": "Trigger",
+      "description": "Gây đốt 5 dmg mỗi lượt x3 lượt lên mục tiêu bị tấn công.",
+      "conditions": [
+        "onHit"
+      ],
+      "effects": [
+        {
+          "type": "DOT",
+          "value": 5,
+          "duration": 3
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tundrake",
+    "element": "Ice",
+    "baseHP": 50,
+    "skill": {
+      "name": "Freeze Wall",
+      "type": "Trigger",
+      "description": "Pet đầu tiên của team người chơi bị skip lượt đầu.",
+      "conditions": [
+        "onBattleStart"
+      ],
+      "effects": [
+        {
+          "type": "Stun",
+          "value": 1,
+          "target": "enemyFirst"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Frostmaw",
+    "element": "Ice",
+    "baseHP": 50,
+    "skill": {
+      "name": "Icicle Spear",
+      "type": "Trigger",
+      "description": "Gây 20 dmg lên pet đối phương bất kỳ.",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "TargetDamage",
+          "value": 20
+        }
+      ]
+    }
+  },
+  {
+    "name": "Borealis",
+    "element": "Ice",
+    "baseHP": 50,
+    "skill": {
+      "name": "Snowcloak",
+      "type": "Passive",
+      "description": "Giảm 10 dmg từ Fire mỗi lượt trong 2 lượt đầu.",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "ReduceDamage",
+          "value": 10,
+          "target": "self",
+          "duration": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Stormcoil",
+    "element": "Electric",
+    "baseHP": 50,
+    "skill": {
+      "name": "Chain Zap",
+      "type": "Trigger",
+      "description": "Gây 10 dmg cho 3 pet khác nhau nếu không bị khắc.",
+      "conditions": [
+        "onAttack"
+      ],
+      "effects": [
+        {
+          "type": "ChainDamage",
+          "value": 10,
+          "targets": 3
+        }
+      ]
+    }
+  },
+  {
+    "name": "Voltrage",
+    "element": "Electric",
+    "baseHP": 50,
+    "skill": {
+      "name": "Surge Field",
+      "type": "Trigger",
+      "description": "Gây 5 AOE dmg và tăng +2 dmg cho lượt kế tiếp.",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 5
+        },
+        {
+          "type": "Buff",
+          "value": 2,
+          "duration": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sparkbeetle",
+    "element": "Electric",
+    "baseHP": 50,
+    "skill": {
+      "name": "Thunder Shell",
+      "type": "Trigger",
+      "description": "Gây 15 dmg cho pet đầu tiên.",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "TargetDamage",
+          "value": 15,
+          "target": "firstEnemy"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Abyss Turtle",
+    "element": "Water",
+    "baseHP": 50,
+    "skill": {
+      "name": "Shell Wave",
+      "type": "Passive",
+      "description": "Giảm 50% dmg từ non-Electric pet trong trận.",
+      "conditions": [
+        "onGetHit"
+      ],
+      "effects": [
+        {
+          "type": "ReduceDamage",
+          "value": 50,
+          "scope": "nonElectric"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tsunamibeast",
+    "element": "Water",
+    "baseHP": 50,
+    "skill": {
+      "name": "Tidal Roar",
+      "type": "Trigger",
+      "description": "Gây 15 AOE dmg ở lượt đầu.",
+      "conditions": [
+        "onFirstTurn"
+      ],
+      "effects": [
+        {
+          "type": "AOE",
+          "value": 15
+        }
+      ]
+    }
+  },
+  {
+    "name": "Hydrofang",
+    "element": "Water",
+    "baseHP": 50,
+    "skill": {
+      "name": "Aqua Bite",
+      "type": "Trigger",
+      "description": "Gây 10 dmg và giảm 5 ATK của mục tiêu trong 2 lượt.",
+      "conditions": [
+        "onAttack"
+      ],
+      "effects": [
+        {
+          "type": "TargetDamage",
+          "value": 10
+        },
+        {
+          "type": "Debuff",
+          "value": 5,
+          "duration": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Stoneheart",
+    "element": "Earth",
+    "baseHP": 50,
+    "skill": {
+      "name": "Quake Field",
+      "type": "Passive",
+      "description": "Tăng kháng 20% cho team (trừ Grass) trong 3 lượt.",
+      "conditions": [
+        "onBattleStart"
+      ],
+      "effects": [
+        {
+          "type": "Resistance",
+          "value": 20,
+          "duration": 3,
+          "exclude": "Grass"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Golemist",
+    "element": "Earth",
+    "baseHP": 50,
+    "skill": {
+      "name": "Rock Throw",
+      "type": "Trigger",
+      "description": "Gây 10 dmg cho 1 pet mục tiêu.",
+      "conditions": [
+        "onTurn"
+      ],
+      "effects": [
+        {
+          "type": "TargetDamage",
+          "value": 10
+        }
+      ]
+    }
+  },
+  {
+    "name": "Thornlord",
+    "element": "Grass",
+    "baseHP": 50,
+    "skill": {
+      "name": "Spore Bloom",
+      "type": "Trigger",
+      "description": "Gây độc 5 dmg mỗi lượt trong 3 lượt cho pet trúng skill.",
+      "conditions": [
+        "onHit"
+      ],
+      "effects": [
+        {
+          "type": "DOT",
+          "value": 5,
+          "duration": 3
+        }
+      ]
+    }
+  }
+]

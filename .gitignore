@@ -1,5 +1,10 @@
 .env
+.envrc.local
 node_modules
 
-.turbo
 _tmp
+
+dist
+
+# Mezon cache
+/mezon-cache

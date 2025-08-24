@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "module": "node16",
     "moduleResolution": "node16",
@@ -8,5 +8,7 @@
     "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo",
     "composite": true
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*"
+  ]
 }

@@ -1,7 +1,0 @@
-.env
-.envrc
-node_modules
-dist
-
-# Mezon cache
-/mezon-cache

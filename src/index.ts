@@ -1,4 +1,4 @@
-import { MezonClient } from "@doraeeemon/mezon";
+import { MezonClient } from "mezon-sdk";
 async function main() {
   const client = new MezonClient(process.env.MEZON_CLIENT_TOKEN);
 

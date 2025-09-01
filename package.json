@@ -9,7 +9,7 @@
     "lint": "biome lint src --no-errors-on-unmatched",
     "fmt": "biome format src --write --no-errors-on-unmatched",
     "check": "biome check --write --no-errors-on-unmatched",
-    "dev": "ts-node --files --transpile-only src/index.ts",
+    "dev": "concurrently \"tsc --watch\" \"nodemon --watch src/ --ext ts,tsx --exec ts-node -r tsconfig-paths/register --files --transpile-only src/index.ts\"",
     "typecheck": "tsc --noEmit",
     "postinstall": "npm run build"
   },
@@ -24,7 +24,9 @@
     "concurrently": "^8.2.2",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
+    "nodemon": "^3.0.3",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.2"
   }
 }

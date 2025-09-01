@@ -1,39 +1,34 @@
 import { MezonClient } from "mezon-sdk";
+import { CommandHandler } from "./application/handlers/command.handler";
+
+// import to register commands
+import "@/application/commands/ban";
+import "@/application/commands/cancelChallenge";
+import "@/application/commands/confirmChallenge";
+import "@/application/commands/pick";
+import "@/application/commands/pve";
+import "@/application/commands/pvp";
+import "@/application/commands/spirits";
+import { bootstrap } from "./core/bootstrap";
+
 async function main() {
+  bootstrap();
+
   const client = new MezonClient(process.env.MEZON_CLIENT_TOKEN);
+  const commandHandler = new CommandHandler(client);
 
-  // Handle connection errors
-  client.on("error", (error) => {
-    console.error("Mezon Client Error:", error);
-  });
+  client.on("error", (error) => console.error(`Mezon Error: ${error}`));
+  client.on("disconnect", (reason) => console.log(`Disconnected: ${reason}`));
+  client.on("ready", () => console.log(`Connected: ${client.clans.size}`));
+  client.onChannelMessage(commandHandler.handleMessage.bind(commandHandler));
+  client.onMessageButtonClicked(
+    commandHandler.handleMessageButtonClicked.bind(commandHandler),
+  );
 
-  client.on("disconnect", (reason) => {
-    console.log("Disconnected from Mezon:", reason);
-    // Implement custom reconnection logic or UI updates if needed
-  });
-
-  client.on("ready", async () => {
-    console.log(`Connected to ${client.clans.size} clans.`);
-
-    // Client is ready, you can now perform actions
-    // Example: Fetch message in channel
-    try {
-      const channel = await client.channels.fetch("channel_id");
-      console.log(`Fetched ${channel.messages.size} channel messages.`);
-    } catch (error) {
-      console.error("Error fetching channel messages:", error);
-    }
-  });
-  client.onChannelMessage((message) => {
-    console.log(
-      `New message in channel ${message.display_name}: ${message.content}`,
-    );
-  });
   await client.login();
 }
 
-main()
-  .then(async () => {})
-  .catch(async (e) => {
-    process.exit(1);
-  });
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

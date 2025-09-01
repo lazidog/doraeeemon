@@ -1,0 +1,330 @@
+[
+  {
+    "id": "1",
+    "name": "Flarefox",
+    "element": "Fire",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Blaze",
+        "type": "Trigger",
+        "description": "When defeating an enemy, heal self for 10 HP.",
+        "conditions": [
+          "onKill"
+        ],
+        "effects": [
+          {
+            "type": "Heal",
+            "value": 10,
+            "target": "self"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Aquana",
+    "element": "Water",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Hydroburst",
+        "type": "Passive",
+        "description": "Deals double damage when attacking with advantage.",
+        "conditions": [
+          "onAdvantage"
+        ],
+        "effects": [
+          {
+            "type": "Buff",
+            "operator": "multiply",
+            "value": 2,
+            "target": "self"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Treantle",
+    "element": "Grass",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Regen Root",
+        "type": "Trigger",
+        "description": "When defeated, heal the next ally spirit in the same position by 10 HP (max 60).",
+        "conditions": [
+          "onDie"
+        ],
+        "effects": [
+          {
+            "type": "Heal",
+            "value": 10,
+            "target": "nextAlly",
+            "maxHP": 60
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Mudcrush",
+    "element": "Earth",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Rock Skin",
+        "type": "Passive",
+        "description": "When countered, reduce incoming damage to 10 instead of 20.",
+        "conditions": [
+          "onCountered"
+        ],
+        "effects": [
+          {
+            "type": "ReduceDamage",
+            "value": 10,
+            "target": "self"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Zapmole",
+    "element": "Electric",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Spark Chain",
+        "type": "Passive",
+        "description": "When an ally deals advantage damage, deal 5 AOE damage to all enemies.",
+        "conditions": [
+          "onAllyAdvantage"
+        ],
+        "effects": [
+          {
+            "type": "AOE",
+            "value": 5,
+            "target": "allEnemies"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Frostbit",
+    "element": "Ice",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Cold Touch",
+        "type": "Trigger",
+        "description": "When defeated, reduce enemy spirit's attack by 5 for 1 turn.",
+        "conditions": [
+          "onDie"
+        ],
+        "effects": [
+          {
+            "type": "Debuff",
+            "value": 5,
+            "target": "enemy",
+            "duration": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Venomoth",
+    "element": "Poison",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Toxin",
+        "type": "Trigger",
+        "description": "When hit by a skill, apply 3 damage per turn for 2 turns to the attacker.",
+        "conditions": [
+          "onGetHit"
+        ],
+        "effects": [
+          {
+            "type": "DOT",
+            "value": 3,
+            "target": "enemy",
+            "duration": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Psykitty",
+    "element": "Psychic",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Mind Twist",
+        "type": "Trigger",
+        "description": "20% chance to swap enemy spirit positions once per battle.",
+        "conditions": [
+          "onTurn"
+        ],
+        "effects": [
+          {
+            "type": "Swap",
+            "chance": 0.2,
+            "target": "enemy"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Dracolisk",
+    "element": "Dragon",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Dragon Breath",
+        "type": "Trigger",
+        "description": "Deals 15 damage to a random enemy spirit.",
+        "conditions": [
+          "onTurn"
+        ],
+        "effects": [
+          {
+            "type": "TargetDamage",
+            "value": 15,
+            "target": "randomEnemy"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Lightwing",
+    "element": "Light",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Radiance",
+        "type": "Passive",
+        "description": "Heal all allies for 5 HP at the start of each turn.",
+        "conditions": [
+          "onTurn"
+        ],
+        "effects": [
+          {
+            "type": "Heal",
+            "value": 5,
+            "target": "allAllies"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Shadowclaw",
+    "element": "Dark",
+    "hp": 50,
+    "skills": [
+      {
+        "name": "Night Slash",
+        "type": "Trigger",
+        "description": "10% chance to deal 20 damage to the enemy spirit.",
+        "conditions": [
+          "onAttack"
+        ],
+        "effects": [
+          {
+            "type": "TargetDamage",
+            "value": 20,
+            "target": "enemy",
+            "chance": 0.1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Goblin",
+    "element": "Earth",
+    "hp": 30,
+    "skills": [
+      {
+        "name": "Rock Throw",
+        "type": "Active",
+        "description": "Deals 10 damage to the target spirit.",
+        "conditions": [
+          "onTurn"
+        ],
+        "effects": [
+          {
+            "type": "TargetDamage",
+            "value": 10,
+            "target": "enemy"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Ice Golem",
+    "element": "Ice",
+    "hp": 80,
+    "skills": [
+      {
+        "name": "Freeze Aura",
+        "type": "Passive",
+        "description": "20% chance to stun the attacker for 1 turn.",
+        "conditions": [
+          "onGetHit"
+        ],
+        "effects": [
+          {
+            "type": "Stun",
+            "value": 1,
+            "target": "enemy",
+            "chance": 0.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Fire Drake",
+    "element": "Fire",
+    "hp": 60,
+    "skills": [
+      {
+        "name": "Flame Burst",
+        "type": "Active",
+        "description": "Deals 15 damage to all enemy spirits.",
+        "conditions": [
+          "onTurn"
+        ],
+        "effects": [
+          {
+            "type": "AOE",
+            "value": 15,
+            "target": "allEnemies"
+          }
+        ]
+      }
+    ]
+  }
+]

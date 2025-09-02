@@ -6,6 +6,7 @@ import "@/application/commands/ban";
 import "@/application/commands/cancelChallenge";
 import "@/application/commands/confirmChallenge";
 import "@/application/commands/pick";
+import "@/application/commands/pika";
 import "@/application/commands/pve";
 import "@/application/commands/pvp";
 import "@/application/commands/spirits";

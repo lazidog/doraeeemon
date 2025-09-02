@@ -1,9 +1,11 @@
 import type { MessageType } from "@/domain/types";
 import type { MezonClient } from "mezon-sdk";
 import type { Message } from "mezon-sdk/dist/cjs/mezon-client/structures/Message";
+import type { TextChannel } from "mezon-sdk/dist/cjs/mezon-client/structures/TextChannel";
 
 export abstract class CommandBase<TMessage extends MessageType = MessageType> {
   protected _message!: Message;
+  protected _channel!: TextChannel;
 
   constructor(
     protected client: MezonClient,
@@ -15,8 +17,8 @@ export abstract class CommandBase<TMessage extends MessageType = MessageType> {
       const { channel_id: channelId, message_id: messageId } = this.message;
       if (!channelId || !messageId) return;
 
-      const channel = await this.client.channels.fetch(channelId);
-      this._message = await channel.messages.fetch(messageId);
+      this._channel = await this.client.channels.fetch(channelId);
+      this._message = await this._channel.messages.fetch(messageId);
     }
     return this._message;
   }

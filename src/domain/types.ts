@@ -112,6 +112,7 @@ export enum CommandName {
   PvP = "pvp",
   PvE = "pve",
   Spirits = "spirits",
+  Pika = "pika",
 }
 
 export enum ActionName {
@@ -122,6 +123,7 @@ export enum ActionName {
 }
 
 export interface CommandRegistry {
+  [CommandName.Pika]: CommandClass<CommandMessage>;
   [CommandName.PvE]: CommandClass<CommandMessage>;
   [CommandName.PvP]: CommandClass<CommandMessage>;
   [CommandName.Spirits]: CommandClass<CommandMessage>;

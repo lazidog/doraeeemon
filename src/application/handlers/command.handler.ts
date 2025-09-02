@@ -1,7 +1,4 @@
-import type {
-  ActionMessage,
-  CommandMessage,
-} from "@/application/commands/base";
+import type { ActionMessage, CommandMessage } from "@/domain/types";
 import { getAction, getCommand } from "@/infra/storages/command.storage";
 import { extractActionMessage, extractCommandMessage } from "@/utils";
 import type { ChannelMessage, MezonClient } from "mezon-sdk";

@@ -41,7 +41,7 @@ export class PikaCommand extends CommandBase {
                 );
                 resolve();
               },
-              Math.floor(Math.random() * 1000),
+              Math.floor(Math.random() * 2000),
             ),
           ),
       ),

@@ -2,14 +2,7 @@ import { MezonClient } from "mezon-sdk";
 import { CommandHandler } from "./application/handlers/command.handler";
 
 // import to register commands
-import "@/application/commands/ban";
-import "@/application/commands/cancelChallenge";
-import "@/application/commands/confirmChallenge";
-import "@/application/commands/pick";
 import "@/application/commands/pika";
-import "@/application/commands/pve";
-import "@/application/commands/pvp";
-import "@/application/commands/spirits";
 import { bootstrap } from "./core/bootstrap";
 
 async function main() {

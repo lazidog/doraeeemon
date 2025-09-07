@@ -1,17 +1,17 @@
-import type { Spirit } from "@/domain";
+import type { Example } from "@/domain";
 import { EMessageComponentType, type SelectComponent } from "mezon-sdk";
-import { spiritSelectorId } from "./id.builder";
+import { exampleSelectorId } from "./id.builder";
 
-export const spiritSelectionBuilder = (
-  spirits: Spirit[],
+export const exampleSelectionBuilder = (
+  examples: Example[],
   customId?: string,
 ): SelectComponent => ({
-  id: customId || spiritSelectorId(),
+  id: customId || exampleSelectorId(),
   type: EMessageComponentType.SELECT,
   component: {
-    options: spirits.map((spirit) => ({
-      label: spirit.name,
-      value: spirit.id,
+    options: examples.map((example) => ({
+      label: "label",
+      value: "value",
     })),
   },
 });
